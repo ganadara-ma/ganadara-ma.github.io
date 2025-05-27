@@ -6,8 +6,16 @@
   "files.associations": {
     "*.html": "liquid"
   },
+  // "[markdown]": {
+  //   "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  // },
   "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": false
+    },
+    "editor.wordBasedSuggestions": "off"
   },
   // Formatter
   "[html][liquid]": {
