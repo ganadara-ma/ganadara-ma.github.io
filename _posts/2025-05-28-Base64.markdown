@@ -1,0 +1,48 @@
+---
+title: Base64
+date: 2025-05-28 01:32:48 +09:00
+categories: [web]
+tags: [encoding]
+---
+
+<!-- https://chirpy.cotes.page/posts/write-a-new-post/ -->
+
+# Base64
+
+- 바이너리 데이터를 텍스트 데이터로 변환하는 인코딩 기법이다.
+  - 인코딩은 데이터를 다른 타입으로 변환하는 것이다.
+- 64개의 문자들 `a-z`, `A-Z`, `0-9`, `+`, `/`
+- 패딩문자 `=`
+
+## Steps
+
+1. 전체 바이너리 데이터를 3byte(24bit) 단위로 나눈다.
+   - 3byte 단위로 나눈 각 부분은 4개의 문자로 변환된다.
+2. 3byte 단위로 나눈 각 부분을 6bit 단위로 나눈다.
+   - 1~5개의 이진수로 구성된 부분은 나머지를 0으로 채운다.
+   - 0개의 이진수로 구성된 부분은 패딩문자로 변환한다.
+3. 패딩문자를 제외하고 Base64 테이블을 기반으로 문자로 변환한다.
+
+## Examples - BitCoin
+
+1. 바이너리 데이터로 표현
+   01000010 01101001 01110100 01000011 01101111 01101001 01101110
+2. 3byte 단위로 나누기
+   010000 100110 100101 110100 /
+   010000 110110 111101 101001 /
+   011011 10
+3. 0으로 채우기 & 패딩문자
+   010000 100110 100101 110100 /
+   010000 110110 111101 101001 /
+   011011 100000
+4. 문자로 변환
+   Qml0
+   Q29p
+   bg==
+
+<a href="https://shiftasia.com/community/base64-encode/" target="_blank">Base64 Character Table</a>
+
+## Tools
+
+- <a href="https://www.rapidtables.com/convert/number/binary-to-decimal.html" target="_blank">Converter</a>
+- <a href="https://www.base64encode.org/ko/" target="_blank">Base64 Encoding & Decoding</a>
